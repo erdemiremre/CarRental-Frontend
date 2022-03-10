@@ -1,0 +1,29 @@
+
+<ul class="list-group">
+  <li  [class]="getAllColorClass()" routerLink="/cars">Tüm Renkler</li>
+  <li (click)="setCurrentColor(color)"
+  routerLink="/cardetails/color/{{color.colorId}}"
+  *ngFor="let color of colors"
+   [class]="getCurrentColorClass(color)">{{color.colorName}}</li>
+</ul>
+
+<h5 *ngIf="currentColor">{{currentColor.colorName}}</h5>
+<!-- <ul class="list-group">
+  <li (click)="makeAllColorsActive()" [class]="getAllColorClass()" routerLink="/cars" >All Colors</li>
+  <li
+    (click)="setCurrentColor(color)"
+    routerLink="/cars/color/{{ color.id }}"
+    *ngFor="let color of colors"
+    [class]="getCurrentColorClass(color)"
+  >
+    {{ color.name }}
+  </li>
+</ul> -->
+
+<!-- <form [formGroup]="colorForm" (ngSubmit)="submit()">
+  <select formControlName="color" class="form-select" aria-label="Default select example">
+    <option [ngValue]="null">Select Color</option>
+    <option *ngFor="let color of colors" [ngValue]="color.colorId">{{color.colorName}}</option>
+  </select>
+  <button type="submit">Submit</button>
+</form> -->
