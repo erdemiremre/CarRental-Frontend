@@ -1,0 +1,71 @@
+<form [formGroup]="carFilterForm" (ngSubmit)="filter()">
+  <div>
+    <select
+      formControlName="brand"
+      class="form-select"
+      aria-label="Default select example"
+      required
+    >
+      <option [ngValue]="null">Select Brand</option>
+      <option *ngFor="let brand of brands" [ngValue]="brand.brandId">
+        {{ brand.brandName }}
+      </option>
+    </select>
+  </div>
+  <br />
+
+  <div>
+    <select
+      formControlName="color"
+      class="form-select"
+      aria-label="Default select example"
+      required
+    >
+      <option [ngValue]="null">Select Color</option>
+      <option *ngFor="let color of colors" [ngValue]="color.colorId">
+        {{ color.colorName }}
+      </option>
+    </select>
+  </div>
+  <br>
+
+  <div class="input-group mb-3">
+    <input
+      class="form-control"
+      type="number"
+      min="0"
+      max="1000"
+      step="5"
+      id="minDailyPrice"
+      formControlName="minimumDailyPrice"
+      placeholder="Minimum Daily Price"
+      required
+    />
+  </div>
+
+  <div class="input-group mb-3">
+    <input
+      class="form-control"
+      type="number"
+      min="0"
+      max="1000"
+      step="5"
+      id="maxDailyPrice"
+      formControlName="maximumDailyPrice"
+      placeholder="Maximum Daily Price"
+      required
+    />
+  </div>
+  <div class="btn-group" style="width: 100%">
+    <button  type="submit" class="btn btn-dark btn-block">Filter</button>
+  </div>
+
+  <br>
+  <br>
+
+
+  <div  *ngIf="!allFilterParamatersEntered" class="alert alert-danger">
+    Enter all filter parameters
+  </div>
+
+</form>

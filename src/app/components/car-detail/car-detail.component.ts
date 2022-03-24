@@ -26,6 +26,7 @@ export class CarDetailComponent implements OnInit {
         this.getCarDetailsByColor(params["colorId"])
       }else{
         this.getCarDetails()
+
       }
     })
 
@@ -34,6 +35,7 @@ export class CarDetailComponent implements OnInit {
    this.carDetailService.getCarDetails().subscribe(response=>{
      this.carDetails=response.data
      this.dataLoaded=true;
+     console.log(this.carDetails)
    })
   }
   getCarDetailsByColor(colorId:number){

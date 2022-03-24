@@ -1,0 +1,63 @@
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
+      <app-car-filter></app-car-filter>
+    </div>
+    <div class="col-md-9">
+      <div class="mb-3">
+        <label for="filterText" class="form-label">Araç Ara</label>
+        <input
+          type="text"
+          [(ngModel)]="filterText"
+          class="form-control"
+          id="filterText"
+          placeholder="Marka giriniz.."
+        />
+      </div>
+      <div *ngIf="dataLoaded==false" style="margin-left:350px; margin-top: 200px;" class="spinner-border text-secondary" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+      <div class="row">
+        <div *ngFor="let carCard of carCards | filterCarCardsPipe:filterText"  class="card" style="width: 16rem">
+          <img
+            class="card-img-top"
+            src="https://localhost:44316{{ carCard.imagePath[0] }}"
+            alt="Card image cap"
+          />
+          <div class="card-body">
+            <h3 class="card-title">
+              {{ carCard.brandName }} {{ carCard.model }}
+            </h3>
+            <h6>Renk {{carCard.colorName}}</h6>
+            <h6>Yıl {{carCard.modelYear}}</h6>
+            <h6>Fiyat {{ carCard.dailyPrice |currency:'₺' }}</h6>
+            <hr />
+
+            <!-- <div class="row">
+              <div class="col-md-6">
+                  <div class="col-md-6">
+                    <h6>Fiyat {{ carCard.dailyPrice }}TL</h6>
+                 </div>
+             </div>
+            </div> -->
+
+          </div>
+
+
+          <div class="d-grid gap-2">
+            <button
+            routerLink="/cars/getcardetailsbyid/{{carCard.carId}}"
+              class="btn btn-warning"
+              type="button"
+            >
+              Detaylar
+            </button>
+          </div>
+          <br />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
