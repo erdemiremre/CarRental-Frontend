@@ -1,6 +1,13 @@
 
+# Proje Ekran Alıntıları
+
+## AnaSayfa
+
 ![AnaSayfa](https://user-images.githubusercontent.com/73900322/159947966-56e995ae-d03d-435c-a4c9-5a22985608c9.gif)
 
+## Araç Detay
+
+![AracDetay](https://user-images.githubusercontent.com/73900322/159949985-4ec642a6-a9e7-4cc4-a019-e261417b91fe.gif)
 
 
 
